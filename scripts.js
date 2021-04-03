@@ -4,7 +4,7 @@ var lastTrail = performance.now();
 var limitTrail = 20;
 
 function mouseTrail(e){
-    if (limitTrail + lastTrail > performance.now()){
+    if (limitTrail > performance.now() - lastTrail){
         return;
     }
     lastTrail = performance.now();
@@ -21,7 +21,7 @@ function mouseTrail(e){
 
 function setLimitTrail(num){
     limitTrail = num;
-    console.log(limitTrail);
+    //console.log(limitTrail + lastTrail);
     document.getElementById("limitTrailValue").innerText = limitTrail;
 }
 
@@ -31,9 +31,8 @@ function setTimeoutTime(num){
 }
 
 document.getElementById("body").addEventListener("mousemove", e => mouseTrail(e), false);
-document.getElementById("limitTrail").addEventListener("change", e => setLimitTrail(e.target.value), false)
-document.getElementById("timeoutTime").addEventListener("change", e => setTimeoutTime(e.target.value), false)
+document.getElementById("limitTrail").addEventListener("change", e => setLimitTrail(e.target.value.valueOf()), false)
+document.getElementById("timeoutTime").addEventListener("change", e => setTimeoutTime(e.target.value.valueOf()), false)
 document.getElementById("limitTrailValue").innerText = limitTrail;
 document.getElementById("timeoutTimeValue").innerText = timeoutTime;
 
-console.log(limitTrail);
