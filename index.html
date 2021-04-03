@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Emoji Mouse Trail</title>
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="scripts.js" as="script">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand&display=swap" as="style">
+    <meta name="author" content="Matthew Petela">
+    <meta name="description" content="Mouse trail with every Emoji.">
+    <meta name="keywords" content="mouse trail, emoji, emoji trail, matthew petela">
+    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand&display=swap" rel="stylesheet">
+  </head>
+  <body id="body">
+    <div class="text-content">
+      <div id="title" class="title">
+          <h1>Emoji Mouse Trail</h1>
+      </div>
+      <div id="description">
+          <p>A mouse trail that displays every (or certain select) emojis.</p>
+      </div>
+      <div id="settings">
+        <div>
+            <input type="range" id="limitTrail" name="limitTrail" 
+            min="0" max="1000" value="20" step="5">
+            <label for="limitTrail"> <span id="limitTrailValue"></span> ms between Emojis.</label>
+        </div>
+        <div>
+            <input type="range" id="timeoutTime" name="timeoutTime" 
+            min="0" max="5000" value="950" step="10">
+            <label for="timeoutTime"> <span id="timeoutTimeValue"></span> ms for Emoji decay.</label>
+        </div>
+      </div>
+      <div id="information">
+        <p>Link to <a href="https://github.com/matthewpetela/emoji-mouse-trail">source</a>.</p>  
+        <p>Created by Matthew Petela.</p>
+      </div>
+    </div>
+    <script src="scripts.js"></script>
+  </body>
+</html>
