@@ -2,8 +2,8 @@ var timeoutTime = 950;
 var currentEmoji = 0;
 var lastTrail = performance.now();
 var limitTrail = 20;
-var test;
 
+/*
 function parse(){
     test = Papa.parse("https://matthewpetela.github.io/emoji-mouse-trail/all-emojis.csv", {
             download: true,
@@ -15,18 +15,21 @@ function parse(){
 }
 
 parse();
+*/
 
 function mouseTrail(e){
     if (limitTrail > performance.now() - lastTrail){
         return;
     }
-    console.log(test)
-    if (currentEmoji > test.data.length){
+    //console.log(emojis)
+    
+    if (currentEmoji > emojis.length){
         currentEmoji = 0;
     }
+    
     lastTrail = performance.now();
     var htmlElement = document.createElement("div");
-    htmlElement.innerHTML = test[currentEmoji][0];
+    htmlElement.innerHTML = emojis[currentEmoji];
     currentEmoji++;
     htmlElement.className = "emoji-style fade-out";
     htmlElement.style.left = e.pageX + "px";
@@ -50,7 +53,7 @@ function setTimeoutTime(num){
 
 document.getElementById("body").addEventListener("mousemove", e => mouseTrail(e), false);
 document.getElementById("limitTrail").addEventListener("change", e => setLimitTrail(e.target.value.valueOf()), false)
-document.getElementById("timeoutTime").addEventListener("change", e => setTimeoutTime(e.target.value.valueOf()), false)
+//document.getElementById("timeoutTime").addEventListener("change", e => setTimeoutTime(e.target.value.valueOf()), false)
 document.getElementById("limitTrailValue").innerText = limitTrail;
 document.getElementById("timeoutTimeValue").innerText = timeoutTime;
 
